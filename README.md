@@ -18,7 +18,7 @@ DD_Neuman_TRUE_LAST --> Pour La Décomposition de Domaine avec conditions MIXTES
 
  Pour changer les parametres tel que le nombre de points de discrétisation de l'espace
  ou le temps final et l'overlap, aller dans mod_parametres.f90
- (dépendance compilateur mpif90)
+ (dépendance compilateur: mpif90, Visualisation: gnuplot)
  
     1/POUR COMPILER FAIRE: make clean;make cleanREP;make
 
