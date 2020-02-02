@@ -96,6 +96,7 @@ crtl_L3_nnz = D_nnz+C_nnz
 sum_crtl_L_nnz = crtl_L1_nnz+crtl_L2_nnz+crtl_L3_nnz
 crtl_L1_nnz_Nxl_EQV_1 = D_nnz
 
+!test pour la verification du nombre de non zero des matrices locales:
 IF(Nx_l > 1)THEN
    IF(crtl_nnz_l/=nnz_l .AND. nnz_l/=sum_crtl_L_nnz)THEN
       PRINT*,'ERROR,RANG=',rang,'Local Matrix A_l.rows,A_l.cols',Nx_l,Ny_l,nnz_l,&
@@ -123,7 +124,7 @@ Uo = 1._PR      !CI pour le gradient conjugué
 U  = 1._PR       !vecteur solution initialisé
 !SAVE SOL :
 call WR_U(U,0)
-CALL matsys_v2(nnz_l,Nx_l,Ny_l,AA,IA,JA)!-->on construit A
+CALL matsys_v2(nnz_l,Nx_l,Ny_l,AA,IA,JA)!-->on construit A au format COO (AA,IA,JA)
 
 OPEN(TAG,file='MAT_VIZU/matrice_A_'//trim(adjustl(rank))//'.dat')!-->POUR VISUALISER LES MATRICES
 DO i=1,nnz_l
@@ -152,8 +153,8 @@ IF(Np>1)THEN
          call vectsource_FULL(CT,U,UG,UD,S1,S2,X,Y,T(ILOOP),F)!-->SECOND MEMBRE F=Uo+dt*SOURCE_TERME+CL
          !call MOD_gradconj_SPARSE(AA,IA,JA,f,Uo,U,res,k,it1,itN)
          !call MOD_jacobi_SPARSE(AA,IA,JA,F,Uo,U,res,k)
-         call BICGSTAB(it1, itN, AA, IA, JA, U, F, 0.0000000001_PR)
-         !call GMres_COO(AA,IA,JA,F,Uo,U,res,k,Na_l,it1,itN,DIMKRYLOV)
+         call BICGSTAB(it1, itN, AA, IA, JA, U, F, 0.0000000001_PR)! solver le plus adapté au PB
+         !call GMres_COO(AA,IA,JA,F,Uo,U,res,k,Na_l,it1,itN,DIMKRYLOV)! mal interfacé
 
          TPSC1 = MPI_WTIME()
          !CALL COMM_PTOP_2WAY(U,UG,UD)!-->UNE PETITE REDUCTION DU TEMPS DE COMMUNICATION(NP>=5)
@@ -161,8 +162,8 @@ IF(Np>1)THEN
          TPSC2 = MPI_WTIME()
          RED_SUMC = RED_SUMC + (TPSC2-TPSC1)
 
-         Uo=U !SWAP
-
+         Uo=U !-->SWAP
+         !POUR LE CALCUL DE L'ERREUR DE SCHWARZ(C1,Nomr1,Norm2,err):
          if(rang==0)then
             C1 = DOT_PRODUCT(U(itN-Ny_l+1:itN),U(itN-Ny_l+1:itN))
          else if(rang==Np-1)then
