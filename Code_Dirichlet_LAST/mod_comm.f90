@@ -5,7 +5,8 @@ module mod_comm
 
 
 CONTAINS
-
+! UG et UD les parties du vecteur solution U Correspondant à/aux frontière(s)
+! immergée(s).
   Subroutine COMM_PTOP(U,UG,UD)
     Real(PR), DImension(it1:itN), Intent(IN):: U
     Real(PR), DImension(it1-Ny_g:it1-1), Intent(INOUT):: UG
