@@ -7,7 +7,7 @@ Module mod_parametres
   Implicit None
 
 !---Précision des calculs -------------------
-Integer, Parameter :: PR=8                       !simple précision
+Integer, Parameter :: PR=8                   
 !--------------------------------------------
 
 !---Parametres géométriques-----------------
@@ -23,8 +23,8 @@ INTEGER :: sysmove
 !g means global Domain GLobal matrix WITHOUT DD ADDITIVE
 !l means local Domain local matrix
 Integer             :: nnz_g
-Integer, Parameter  :: Nx_g=400              !lignes de A (discrétisation en x)
-Integer, Parameter  :: Ny_g=400              !colonnes de A (discrétisation en y)
+Integer, Parameter  :: Nx_g=200              !lignes de A (discrétisation en x)
+Integer, Parameter  :: Ny_g=100              !colonnes de A (discrétisation en y)
 Integer, Parameter  :: Na_g=Nx_g*Ny_g        !taille de la matrice A
 Integer, Parameter  :: Nt=30                 !discrétisation du temps
 Real(PR), Parameter :: dx=1._PR/(Real(Nx_g)+1)     ! pas en x
@@ -55,7 +55,7 @@ INTEGER   ::it1
 INTEGER   ::itN !=> P(OMEGA^(rang)) \in [|it1;itN|]
 INTEGER   ::overlapd
 INTEGER   ::overlapg
-INTEGER,PARAMETER::overlap=10
+INTEGER,PARAMETER::overlap=1
 INTEGER   ::Na_l  !NBR rows or cols in local matrix
                   !na_loc == (S2-S1+1)*Ny
 INTEGER   ::Nx_l  !Nx local will be set to S2-S1+1
