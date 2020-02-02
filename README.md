@@ -6,12 +6,13 @@ Contributeurs: D.Sans, B.Mistral, V.Lederer
 
 Code_Dirichlet_LAST --> Pour La Décomposition de Domaine avec conditions de Dirichlet aux frontieres immergees
 
-                    --> exécution en séquentiel ou en parallèle.
+                    --> exécution en séquentiel ou en parallèle. Pour l'execution en sequentiel toujours mettre overlap=1
                     
 DD_Neuman_TRUE_LAST --> Pour La Décomposition de Domaine avec conditions MIXTES(Robin) aux frontieres immergees
 
                     --> Uniquement en Parallèle.
                     
+(Par ailleurs, choisir overlap t.q le débordement du proc rang reste sur le domaine des procs rang-1 et rang+1)
 
 #COMPILATION EXECUTION CHANGEMENT DES PARAMETRES:
 
