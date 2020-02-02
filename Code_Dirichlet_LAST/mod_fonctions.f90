@@ -17,7 +17,7 @@ Contains
 Real(PR) Function f1(CT,x,y,t)
   Integer,  Intent(In) :: CT
   Real(PR), Intent(In) :: x, y, t
-  
+  f1 = 0.0_PR
   If ( CT == 1 ) Then
     f1 = 2._PR * (y*(1._PR-y)+x*(1._PR-x))
   Else IF ( CT == 2 ) Then
@@ -34,7 +34,7 @@ End Function f1
 Real(PR) Function g1(CT,x,y,t)
   Integer,  Intent(In) :: CT
   Real(PR), Intent(In) :: x,y,t
-  
+  g1 = 0.0_PR
   If ( CT == 1 ) Then
     g1 = 0._PR
   Else IF ( CT == 2 ) Then
@@ -49,7 +49,7 @@ End Function g1
 Real(PR) Function h1(CT,x,y,t)
   Integer,  Intent(In) :: CT
   Real(PR), Intent(In) :: x,y,t
-  
+  h1 = 0.0_PR
   If ( CT == 1 ) Then
     h1 = 0._PR
   Else IF ( CT == 2 ) Then
