@@ -11,7 +11,7 @@ Module mod_fonctions
 
 Contains
 !CT --> tag pour moduler les fct suivant le CAS test
-!(x,y,t) --> coordonnees d'espace et le temps
+!(x,y,t) --> coordonnees espace et le temps
 
 !---fonction f premier exemple(terme source)---
 Real(PR) Function f1(CT,x,y,t)
@@ -60,7 +60,7 @@ Real(PR) Function h1(CT,x,y,t)
 End Function h1
 !---Fonctions donnant les vecteurs Xi,Yj,Tn---------------
 
-!Pour discrtiser l'espace et le temps:
+!Pour discretiser espace et le temps:
 !verision sequentiel
 Subroutine param(X,Y,T)
   Implicit None
