@@ -35,7 +35,7 @@ Real(PR), Parameter :: pi=4._PR*atan(1._PR)
 Real(PR), Parameter :: alpha =1._PR+(2._PR*D*dt/(dx**2._PR))+(2._PR*D*dt/(dy**2._PR)) !
 Real(PR), Parameter :: beta = (-D*dt)/(dx**2._PR)      !AL                            ! CF coefficients matrice
 Real(PR), Parameter :: gamma =(-D*dt)/(dy**2._PR)      !AP                            ! 2 autres coef sont dans
-                                                                                      ! mod_constuc
+                                                                                      ! mod_constr_mat.f90
 !-------------------------------------------
 
 !---PARAMETRES MPI--------------------------
