@@ -39,3 +39,14 @@ mod_parametres.f90
 
 make cleanREP supprime le contenu des repertoires.
 
+    #Parametres par défaut (dans mod_parametres):
+
+Lx = Ly = 1   Longueur et Largeur
+
+D = 1   Coef de Diffusion
+
+Nx_g = 200  Ny_g = 100  (Nbr de points de discrétisation du domaine intérieur suivant Ox et Oy
+
+Nt = 30 (ite temps) Tf = 2sec (temps final)
+
+overlap = 1
