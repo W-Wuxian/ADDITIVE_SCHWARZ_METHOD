@@ -23,18 +23,19 @@ INTEGER :: sysmove
 !g means global Domain GLobal matrix WITHOUT DD ADDITIVE
 !l means local Domain local matrix
 Integer             :: nnz_g
-Integer, Parameter  :: Nx_g=400             !lig nes de A (discrétisation en x)
+Integer, Parameter  :: Nx_g=400              !lignes de A (discrétisation en x)
 Integer, Parameter  :: Ny_g=400              !colonnes de A (discrétisation en y)
 Integer, Parameter  :: Na_g=Nx_g*Ny_g        !taille de la matrice A
-Integer, Parameter  :: Nt=30                !discrétisation du temps
+Integer, Parameter  :: Nt=30                 !discrétisation du temps
 Real(PR), Parameter :: dx=1._PR/(Real(Nx_g)+1)     ! pas en x
 Real(PR), Parameter :: dy=1._PR/(Real(Ny_g)+1)     ! pas en y
-Real(PR), Parameter :: Tf=2._PR                 !temps final de la simulation
-Real(PR), Parameter :: dt=Tf/(Real(Nt)+1)        !pas de temps
+Real(PR), Parameter :: Tf=2._PR                    !temps final de la simulation
+Real(PR), Parameter :: dt=Tf/(Real(Nt)+1)          !pas de temps
 Real(PR), Parameter :: pi=4._PR*atan(1._PR)
 Real(PR), Parameter :: alpha =1._PR+(2._PR*D*dt/(dx**2._PR))+(2._PR*D*dt/(dy**2._PR)) !
-Real(PR), Parameter :: beta = (-D*dt)/(dx**2._PR)      !AL                               ! CF coefficients matrice
-Real(PR), Parameter :: gamma =(-D*dt)/(dy**2._PR)   !AP                                  !
+Real(PR), Parameter :: beta = (-D*dt)/(dx**2._PR)      !AL                            ! CF coefficients matrice
+Real(PR), Parameter :: gamma =(-D*dt)/(dy**2._PR)      !AP                            ! 2 autres coef sont dans
+                                                                                      ! mod_constuc
 !-------------------------------------------
 
 !---PARAMETRES MPI--------------------------
@@ -73,12 +74,12 @@ INTEGER   ::D_nnz  !will be set to D_rows+2*(D_rows-1)
 INTEGER   ::C_rows !will be set to Ny_l
 INTEGER   ::C_nnz  !will be set to C_rows
 ! WE DEFINE a control nnz_l parameter over L1, L2, L3 such that:
-!|[D][C][0][0]| = [L1]
+!|[D][C][0][0]| = [L1]   !avec s=alpha_newmann
 INTEGER   ::crtl_L1_nnz !will be set to D_nnz+C_nnz
-!|[C][D][C][0]| = [L2]
+!|[C][D][C][0]| = [L2]   !avec s=alpha
 !|[0][C][D][C]|
 INTEGER   ::crtl_L2_nnz !will be set to (Nx_l-2)*(D_nnz+2*C_nnz)
-!|[0][0][C][D]| = [L3]
+!|[0][0][C][D]| = [L3]   !avec s=alpha_newmann
 INTEGER   ::crtl_L3_nnz !will be set to D_nnz+C_nnz
 !SUCH THAT THE RELATION (*) NEED TO BE .TRUE.:
 !(*)crtl_L1_nnz+crtl_L2_nnz+crtl_L3_nnz = crtl_nnz_l = nnz_l
