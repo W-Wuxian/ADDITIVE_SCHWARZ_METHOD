@@ -1,1 +1,14 @@
-BLANK FILE FOR GIT
+POUR COMPILER FAIRE: make clean;make cleanREP;make
+pour executer le code faire: mpirun -n X -mca -pml -obl ./run
+avec X le nombre de processus.
+pour relancer le code sans changer les parametres mais sur un autre
+cas test, faire make cleanREP puis relancer l'execution.
+
+la modification des parametres, tel que l'overlap, le nombre
+de point de calcul, le temps final, se fait dans:
+mod_parametres.f90
+
+Si vous changer les parametres, il faut alors faire:
+make clean;make cleanREP;make avant de lancer l'execution.
+
+make cleanREP supprime le contenu des repertoires.
