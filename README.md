@@ -19,23 +19,23 @@ DD_Neuman_TRUE_LAST --> Pour La Décomposition de Domaine avec conditions MIXTES
  ou le temps final et l'overlap, aller dans mod_parametres.f90
  (dépendance compilateur mpif90)
  
-1/POUR COMPILER FAIRE: make clean;make cleanREP;make
+    1/POUR COMPILER FAIRE: make clean;make cleanREP;make
 
 2/Pour executer le code faire: mpirun -n X --mca pml ob1 ./run
 
 avec X le nombre de processus (Attention: X doit etre <= Nx_g le nombre de point de calcul suivant l'axe Ox)
 
-3/Pour relancer le code sans changer les parametres mais sur un autre
-cas test, faire make cleanREP puis relancer l'execution.
+    3/Pour relancer le code sans changer les parametres mais sur un autre
+    cas test, faire make cleanREP puis relancer l'execution.
 
 4/la modification des parametres, tel que l'overlap, le nombre
 
 de point de calcul (Nx_g, Ny_g), le temps final, se fait dans:
 mod_parametres.f90
 
-5/Si vous changer les parametres, il faut alors faire:
+    5/Si vous changer les parametres, il faut alors faire:
 
-make clean;make cleanREP;make avant de lancer l'execution.
+    make clean;make cleanREP;make avant de lancer l'execution.
 
 make cleanREP supprime le contenu des repertoires.
 
