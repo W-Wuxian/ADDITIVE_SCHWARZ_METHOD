@@ -13,7 +13,8 @@ Module mod_matsys
 
 Contains
   !--- SUBROUTINE QUI CONSTRUIT LA MATRICE A : UN SEUL APPEL ----------------------
-
+  !--- COO FORMAT: AA contient elements non nuls, IA et JA numéro de la ligne, colonne
+  !--- de element non nul.
   Subroutine matsys_v2(nnz,Nx_l,Ny_l,AA,IA,JA)
     Integer, Intent(IN) ::nnz,Nx_l,Ny_l
     Real(PR), Dimension(:), Allocatable, Intent(Out) :: AA
@@ -183,7 +184,8 @@ Contains
 
 
 
-!--------SUBROUTINE DU VECTEUR SOURCE EN FONCTION DE L'ITERATION N ET DU VECTEUR U--------
+!--------SUBROUTINE DU SECOND MEMBRE EN FONCTION DE L'ITERATION N ET DU VECTEUR U--------
+!--------ET DES CONDITIONS AUX LIMITES
 Subroutine vectsource(CT,U,S1,S2,X,Y,T,F)
   Implicit None
   !---variables----------------------------------
@@ -215,7 +217,7 @@ Subroutine vectsource(CT,U,S1,S2,X,Y,T,F)
 End Subroutine vectsource
 
 
-
+!DANS LE CAS DE LA DECOMPOSITION DE DOMAINE: 
 Subroutine vectsource_FULL(CT,U,UG,UD,S1,S2,X,Y,T,F)
   Implicit None
   !---variables----------------------------------
@@ -236,12 +238,12 @@ Subroutine vectsource_FULL(CT,U,UG,UD,S1,S2,X,Y,T,F)
         IF(i == 1)THEN
            F(k) = F(k) - h1(CT,X(i-1),Y(j),T)*beta
         ELSE IF(i == S1 )THEN !.AND. rang /= 0)THEN not needed with the current order if... else if
-           F(k) = F(k) - beta * UG(k-Ny_g) 
+           F(k) = F(k) - beta * UG(k-Ny_g) !CL dirichlet frontiere immergee
         ELSE IF(i == Nx_g)THEN
            !PRINT*,'RANG',rang,'it1,itN',it1,itN,'LBX,UBX',lbound(X,1),UBOUND(X,1),'k',k,'i,j',i,j
            F(k) = F(k) - h1(CT,X(i+1),Y(j),T)*beta
         ELSE IF(i == S2)THEN !.AND. rang /= Np-1)THEN not needed with the current order else if... else if
-           F(k) = F(k) - beta * UD(k+Ny_g) 
+           F(k) = F(k) - beta * UD(k+Ny_g) !CL dirichlet frontiere immergee
         END IF
         IF(j == 1)THEN
            F(k) = F(k) - g1(CT,X(i),Y(j-1),T)*gamma
