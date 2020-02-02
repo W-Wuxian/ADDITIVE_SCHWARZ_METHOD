@@ -25,19 +25,20 @@ INTEGER :: sysmove
 !g means global Domain GLobal matrix WITHOUT DD ADDITIVE
 !l means local Domain local matrix
 Integer             :: nnz_g
-Integer, Parameter  :: Nx_g=400              !lig nes de A (discrétisation en x)
-Integer, Parameter  :: Ny_g=400           !colonnes de A (discrétisation en y)
+Integer, Parameter  :: Nx_g=200              !lig nes de A (discrétisation en x)
+Integer, Parameter  :: Ny_g=100              !colonnes de A (discrétisation en y)
 Integer, Parameter  :: Na_g=Nx_g*Ny_g        !taille de la matrice A
-Integer, Parameter  :: Nt=30                !discrétisation du temps
+Integer, Parameter  :: Nt=30                 !discrétisation du temps
 Real(PR), Parameter :: dx=1._PR/(Real(Nx_g)+1)     ! pas en x
 Real(PR), Parameter :: dy=1._PR/(Real(Ny_g)+1)     ! pas en y
 Real(PR), Parameter :: Tf=2.0_PR                 !temps final de la simulation
-Real(PR), Parameter :: dt=Tf/(Real(Nt))        !pas de temps
+Real(PR), Parameter :: dt=Tf/(Real(Nt))          !pas de temps
 Real(PR), Parameter :: pi=4._PR*atan(1._PR)
+!----------------------------------------------------------------------------------------------------------------
 Real(PR), Parameter :: alpha =1._PR+(2._PR*D*dt/(dx**2._PR))+(2._PR*D*dt/(dy**2._PR)) !
-Real(PR), Parameter :: beta = (-D*dt)/(dx**2._PR)      !AL                               ! CF coefficients matrice
-Real(PR), Parameter :: gamma =(-D*dt)/(dy**2._PR)   !AP  
-                               !
+Real(PR), Parameter :: beta = (-D*dt)/(dx**2._PR)      !AL                            ! CF coefficients matrice
+Real(PR), Parameter :: gamma =(-D*dt)/(dy**2._PR)      !AP  
+!----------------------------------------------------------------------------------------------------------------
 !-------------------------------------------
 
 
