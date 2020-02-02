@@ -1,6 +1,7 @@
 #F90 = gfortran
 F90 = mpif90
-FLAG = -O2 -g -Wall -Wextra -Warray-temporaries -Wconversion -fimplicit-none -fbacktrace -ffree-line-length-0 -fcheck=all -ffpe-trap=zero,overflow,underflow -finit-real=nan
+#FLAG = -O2 -g -Wall -Wextra -Warray-temporaries -Wconversion -fimplicit-none -fbacktrace -ffree-line-length-0 -fcheck=all -ffpe-trap=zero,overflow,underflow -finit-real=nan
+FLAG = -O3 -g
 
 EXE = run
 
