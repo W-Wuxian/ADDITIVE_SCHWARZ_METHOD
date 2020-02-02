@@ -56,8 +56,8 @@ INTEGER   ::S1
 INTEGER   ::S2  !=> X_i^(rang) \in [|S1;S2|]
 INTEGER   ::it1
 INTEGER   ::itN !=> P(OMEGA^(rang)) \in [|it1;itN|]
-INTEGER   ::overlapd
-INTEGER   ::overlapg
+!INTEGER   ::overlapd
+!INTEGER   ::overlapg
 INTEGER,PARAMETER::overlap=1
 INTEGER   ::Na_l  !NBR rows or cols in local matrix
                   !na_loc == (S2-S1+1)*Ny
@@ -66,14 +66,13 @@ INTEGER   ::Ny_l
 INTEGER   ::nnz_l !nbr de non zero in local matrix
 INTEGER   ::crtl_nnz_l !control de nnz
 !since a A_l matrix local is made by block D AND C such:
-![H][V][0][0]
+!avec s=alpha, x=gamma et v=beta:
 
 ![D][C][0][0]     !    |s x 0 0|   !    |v 0 0 0| ! A_l.rows=Nx_l*Ny_l=A_l.cols
 ![C][D][C][0]     ![D]=|x s x 0|   ![C]=|0 v 0 0| ! D.rows=D.cols=Ny_l
 ![0][C][D][C]     !    |0 x s x|   !    |0 0 v 0| ! C.cols=C.rows=Ny_l
 ![0][0][C][D]     !    |0 0 x s|   !    |0 0 0 v| !We got (Nx_l) [D] block & (Nx_l-1) [C] upper block
 
-!![0][0][V][H]
 !& (Nx_l-1) [C] lower block
 !SUCH THAT crtl_nnz_l=(Nx_l*Ny_l) + 2 * (Nx_l) * (Ny_l - 1) + 2 * (Nx_l - 1) * (Ny_l)
 INTEGER   ::D_rows !will be set to Ny_l
