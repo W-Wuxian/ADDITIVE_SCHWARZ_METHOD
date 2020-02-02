@@ -12,10 +12,10 @@ Module mod_fonctions
 Contains
 
 !---fonction f premier exemple(terme source)---
-Function f1(CT,x,y,t)
+Real(PR) Function f1(CT,x,y,t)
   Integer, Intent(In) :: CT
   Real(PR), Intent(In) :: x,y,t
-  Real(PR) :: f1
+  
   If (CT==1) Then
     f1=2._PR*(y*(1._PR-y)+x*(1._PR-x))
   Else IF (CT==2) Then
@@ -29,10 +29,10 @@ End Function f1
 !----------------------------------------------
 
 !---fonction g premier exemple( bords haut/bas)-
-Function g1(CT,x,y,t)
+Real(PR) Function g1(CT,x,y,t)
   Integer, Intent(In) :: CT
   Real(PR), Intent(In) :: x,y,t
-  Real(PR) :: g1
+  
   If (CT==1) Then
     g1=0._PR
   Else IF (CT==2) Then
@@ -44,10 +44,10 @@ End Function g1
 !----------------------------------------------
 
 !---function h premier exemple(bord gauche/droite)
-Function h1(CT,x,y,t)
+Real(PR) Function h1(CT,x,y,t)
   Integer, Intent(In) :: CT
   Real(PR), Intent(In) :: x,y,t
-  Real(PR) :: h1
+  
   If (CT==1) Then
     h1=0._PR
   Else IF (CT==2) Then
