@@ -16,7 +16,7 @@ Contributeurs: D.Sans, B.Mistral, V.Lederer
 
 ## Objectifs
 ADDITIVE_SCHWARZ_DD FOR HEAT EQUATION (2D) FINITE DIFFERENCE. Il s'agit d'appliquer une stratégie de 
-décomposition de domaine au problème initialement posé en [MPI_EQ](./README#PARA)
+décomposition de domaine au problème initialement posé en [MPI_EQ](#PARA)
 
 ## Résultats
 ### Codes
