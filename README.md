@@ -29,7 +29,7 @@ DD_Neuman_TRUE_LAST [NEUMANN_DD](./DD_Neuman_TRUE_LAST) --> Pour La Décompositi
                     --> Uniquement en Parallèle.
                     
 (Par ailleurs, choisir overlap t.q le débordement du proc rang reste sur le domaine des procs rang-1 et rang+1)
-### Raport
+### Rapport
 [rapport DD](./Projet_D_composition_Domaine(1).pdf)
 
 ## COMPILATION EXECUTION CHANGEMENT DES PARAMETRES:
