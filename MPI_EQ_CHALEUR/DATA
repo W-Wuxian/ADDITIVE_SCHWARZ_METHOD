@@ -1,0 +1,12 @@
+*** Lx  Ly  D  Nx Ny :
+1.0d0 1.0d0 1.0d0 22 22
+*** POUR PASSER L'AFFICHAGE DES RESULTATS ENTREZ 0, SINON 1 :
+1
+*** CAS #  : SOURCE->     F INTERIEURE   ->   G, H EXTERIEURE :
+*** CAS #1 : F=2(Y-Y^2+X-X^2)                      G=0    H=0 .
+*** CAS #2 : F=Sin(X)+Cos(Y)                       G=F    H=F .
+*** CAS #3 : F=Exp(-(X-Lx/2)^2)*Exp(-(Y-Ly/2)^2)   G=0    H=1 .
+*** ENTREZ VOTRE CHOIX  : 1 ou 2 ou 3 ou POUR QUITTER ENTREZ  0 :
+3
+*** ENTREZ LE PAS DE TEMPS "DT" ET L'ITERATION MAX EN TEMPS "ITER_TMAX" :
+0.005d0 200 
