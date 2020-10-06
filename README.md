@@ -10,13 +10,13 @@ Pour le rapport voir --> [Rapport MPI](./MPI_EQ_CHALEUR.pdf)
 Pour le code voir le répertoire --> [Code MPI](./MPI_EQ_CHALEUR)
 Pour la compilation voir --> [Compilation MPI](./MPI_EQ_CHALEUR/README)
 
-# ADDITIVE_SCHWARZ_METHOD
+# [ADDITIVE_SCHWARZ_METHOD](#DD)
 Dans le cadre du cours CHP de Madame Beaugendre à l'ENSEIRB-MATMECA.
 Contributeurs: D.Sans, B.Mistral, V.Lederer
 
 ## Objectifs
 ADDITIVE_SCHWARZ_DD FOR HEAT EQUATION (2D) FINITE DIFFERENCE. Il s'agit d'appliquer une stratégie de 
-décomposition de domaine au problème initialement posé en [MPI_EQ](#PARA)
+décomposition de domaine au problème initialement posé en [Rapport MPI](./MPI_EQ_CHALEUR.pdf).
 
 ## Résultats
 ### Codes
@@ -70,4 +70,4 @@ Nt = 30 (ite temps) Tf = 2sec (temps final)
 
 overlap = 1
 
-[MPI_EQ](#PARA)
+
