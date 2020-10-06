@@ -1,4 +1,4 @@
-# Parallélisation via MPI de l'équation de la chaleur
+# Parallélisation via MPI de l'équation de la chaleur (#Parallélisation-via-MPI-de-l'équation-de-la-chaleur)
 Dans le cadre du cours CHP de Madame Beaugendre à l'ENSEIRB-MATMECA.
 Contributeur: V.Lederer
 
@@ -16,7 +16,7 @@ Contributeurs: D.Sans, B.Mistral, V.Lederer
 
 ## Objectifs
 ADDITIVE_SCHWARZ_DD FOR HEAT EQUATION (2D) FINITE DIFFERENCE. Il s'agit d'appliquer une stratégie de 
-décomposition de domaine au problème initialement posé en [MPI_EQ](./README# Parallélisation via MPI de l'équation de la chaleur)
+décomposition de domaine au problème initialement posé en [MPI_EQ](./README#Parallélisation-via-MPI-de-l'équation-de-la-chaleur)
 
 ## Résultats
 ### Codes
