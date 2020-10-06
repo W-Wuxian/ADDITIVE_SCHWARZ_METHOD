@@ -69,3 +69,5 @@ Nx_g = 200  Ny_g = 100  (Nbr de points de discrétisation du domaine intérieur 
 Nt = 30 (ite temps) Tf = 2sec (temps final)
 
 overlap = 1
+
+[MPI_EQ](#PARA)
