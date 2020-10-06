@@ -1,20 +1,38 @@
-# ADDITIVE_SCHWARZ_METHOD
-ADDITIVE_SCHWARZ_DD FOR HEAT EQUATION (2D) FINITE DIFFERENCE
+# Parallélisation via MPI de l'équation de la chaleur
+Dans le cadre du cours CHP de Madame Beaugendre à l'ENSEIRB-MATMECA.
+Contributeur: V.Lederer
 
+## Objectifs
+Mise en équation par la méthode des différences finies sur une grille cartésienne 2D.
+Parallélisation du code via MPI.
+## Résultats
+Pour le rapport voir --> [Rapport MPI](./MPI_EQ_CHALEUR.pdf)
+Pour le code voir le répertoire --> [Code MPI](./MPI_EQ_CHALEUR)
+Pour la compilation voir --> [Compilation MPI](./MPI_EQ_CHALEUR/README)
+
+# ADDITIVE_SCHWARZ_METHOD
 Dans le cadre du cours CHP de Madame Beaugendre à l'ENSEIRB-MATMECA.
 Contributeurs: D.Sans, B.Mistral, V.Lederer
 
-Code_Dirichlet_LAST --> Pour La Décomposition de Domaine avec conditions de Dirichlet aux frontieres immergees
+## Objectifs
+ADDITIVE_SCHWARZ_DD FOR HEAT EQUATION (2D) FINITE DIFFERENCE. Il s'agit d'appliquer une stratégie de 
+décomposition de domaine au problème initialement posé en [MPI_EQ](./README# Parallélisation via MPI de l'équation de la chaleur)
+
+## Résultats
+### Codes
+Code_Dirichlet_LAST [DIRICHLET_DD](./Code_Dirichlet_LAST) --> Pour La Décomposition de Domaine avec conditions de Dirichlet aux frontieres immergees
 
                     --> exécution en séquentiel ou en parallèle. Pour l'execution en sequentiel toujours mettre overlap=1
                     
-DD_Neuman_TRUE_LAST --> Pour La Décomposition de Domaine avec conditions MIXTES(Robin) aux frontieres immergees
+DD_Neuman_TRUE_LAST [NEUMANN_DD](./DD_Neuman_TRUE_LAST) --> Pour La Décomposition de Domaine avec conditions MIXTES(Robin) aux frontieres immergees
 
                     --> Uniquement en Parallèle.
                     
 (Par ailleurs, choisir overlap t.q le débordement du proc rang reste sur le domaine des procs rang-1 et rang+1)
+### Raport
+[rapport DD](./Projet_D_composition_Domaine(1).pdf)
 
-#COMPILATION EXECUTION CHANGEMENT DES PARAMETRES:
+## COMPILATION EXECUTION CHANGEMENT DES PARAMETRES:
 
  Pour changer les parametres tel que le nombre de points de discrétisation de l'espace
  ou le temps final et l'overlap, aller dans mod_parametres.f90
